@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "QR Code Generator";
+}
+
+<h2>QR Code Generator</h2>
+
+<form method="post" action="@Url.Action("GenerateQRCode", "QRCode")">
+    <div>
+        <label for="link">Enter your link:</label>
+        <input type="text" id="link" name="link" placeholder="Enter your link here" required />
+    </div>
+    <button type="submit">Generate QR Code</button>
+</form>
+
+@if (TempData["QRCodeUrl"] != null)
+{
+    <h3>Your QR Code:</h3>
+    <img src="@TempData["QRCodeUrl"]" alt="QR Code" />
+}
